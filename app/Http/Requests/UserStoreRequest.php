@@ -26,7 +26,6 @@ class UserStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            
             'cep' => [
                 'required',
                 'string',
@@ -45,7 +44,12 @@ class UserStoreRequest extends FormRequest
                        $fail('O CEP informado não existe');
                     }
                 }
-            ],
+            ], 
+            // o parâmetro $attribute é o nome do campo, nesse caso cep
+            // o parâmetro $value é o valor do campo, nesse caso o cep informado pelo usuário
+            // o parâmetro $fail é a função que será executada caso o CEP seja inválido
+
+
             'phone' => 'required|string',
         ];
     }
