@@ -42,7 +42,7 @@ class UserStoreRequest extends FormRequest
                     // Verifica se o JSON foi obtido com sucesso e se o CEP existe
                     if ($json === FALSE || isset(json_decode($json)->erro)) {
                        $fail('O CEP informado não existe');
-                    }
+                    } 
                 }
             ], 
             // o parâmetro $attribute é o nome do campo, nesse caso cep
