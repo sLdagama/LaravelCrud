@@ -26,6 +26,7 @@
                     $json = file_get_contents($url); // Recebe o JSON
                     $endereco = json_decode($json); // Decodifica o JSON
                 @endphp
+                
                 <ul>
                     <li class="border-b border-gray-200 py-2">
                         <div class="flex items-center justify-between">
