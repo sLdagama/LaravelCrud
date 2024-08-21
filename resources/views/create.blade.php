@@ -10,7 +10,7 @@
     <main class="p-8">
         <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto mgt-15">
             <h2 class="text-xl font-semibold mb-6">Adicionar Usuário</h2>
-            <form action="{{ route('users.store') }}" method="POST" class="space-y-4">
+            <form enctype="multipart/form-data" action="{{ route('users.store') }}" method="POST" class="space-y-4">
                 @csrf
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
@@ -25,6 +25,14 @@
                 <div>
                     <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
                     <input required="" type="text" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="(XX) XXXXX-XXXX">
+                </div>
+                <div>
+                    <label for="user_file" class="block text-sm font-medium text-gray-700">Foto</label>
+                    <input type="file" id="user_file" name="user_file" class="hidden" onchange="updateFileName()">
+                    <label   label for="user_file" class="cursor-pointer mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 bg-white text-gray-500 text-center hover:bg-gray-100 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        Selecione uma imagem
+                    </label>
+                    <p id="file_name" class="mt-2 text-gray-700"></p> <!-- Local para exibir o nome do arquivo -->
                 </div>
 
                 <div class="pt-4">

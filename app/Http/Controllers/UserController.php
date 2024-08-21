@@ -14,7 +14,14 @@ class UserController extends Controller
     } // mostra a tela de cadastro do usuário
     public function store(UserStoreRequest $request) {
         $input = $request->validated();
+
+        if (!empty($input['user_file']) && $input['user_file']->isValid()) {
+            $file = $input['user_file'];
+            $path = $file->store('users');
+            $input['user_file'] = $path;
+        }
         User::create($input);
+        
         return Redirect::route('home')->with('success', 'Usuário criado com sucesso!');
     } // faz o cadastro do usuário
     
@@ -29,7 +36,15 @@ class UserController extends Controller
 
     public function update(UserStoreRequest $request, User $user) {
         $input = $request->validated();
+        
+        if (!empty($input['user_file']) && $input['user_file']->isValid()) {
+            $file = $input['user_file'];
+            $path = $file->store('users');
+            $input['user_file'] = $path;
+        }
+
         $user->update($input);
+
         return Redirect::route('home')->with('success', 'Usuário editado com sucesso!');
     } // faz a edição
 }

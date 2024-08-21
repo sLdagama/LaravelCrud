@@ -32,7 +32,7 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <img class="h-10 w-10 rounded-full" src="https://via.placeholder.com/100" alt="Usuário">
+                                    <img class="h-10 w-10 rounded-full" src="{{ asset('storage/' . $user->user_file) }}" alt="Usuário">
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-lg font-medium text-gray-900">Nome : {{ $user->name }}</div>

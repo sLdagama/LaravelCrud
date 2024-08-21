@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('cep');
             $table->string('phone');
+            $table->string('user_file')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
