@@ -52,6 +52,8 @@ class UserStoreRequest extends FormRequest
 
             'phone' => 'required|string',
             'user_file' => 'file|nullable',
+            'email'=> 'required|email',
+            'senha' => 'required|string',
         ];
     }
 }

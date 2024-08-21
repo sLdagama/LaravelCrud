@@ -22,6 +22,14 @@
                     <input value="{{ $user->phone }}" required="" type="text" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="(XX) XXXXX-XXXX">
                 </div>
                 <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input value="{{ $user->email }}" required="" type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Insira seu email">
+                </div>
+                <div>
+                    <label for="senha" class="block text-sm font-medium text-gray-700">Senha</label>
+                    <input value="{{ $user->senha }}" required="" type="password" id="senha" name="senha" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Insira sua senha">
+                </div>
+                <div>
                     <label for="user_file" class="block text-sm font-medium text-gray-700">Foto</label>
                     <input type="file" id="user_file" name="user_file" class="hidden">
                     <label for="user_file" class="cursor-pointer mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 bg-white text-gray-500 text-center hover:bg-gray-100 focus:outline-none focus:ring-blue-500 focus:border-blue-500">

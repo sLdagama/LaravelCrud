@@ -8,6 +8,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    @if (session('login.success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Sucesso!</strong> {{ session('login.success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="flex justify-center my-6">
         <form action="/" method="GET" class="flex items-center space-x-2">
             <input value="{{ request()->search }}" name="search" id="search" type="text" placeholder="Buscar..." class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">

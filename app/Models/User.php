@@ -22,6 +22,8 @@ class User extends Authenticatable
         'cep',
         'phone',
         'user_file',
+        'email',
+        'senha',
     ];
 
     /**
