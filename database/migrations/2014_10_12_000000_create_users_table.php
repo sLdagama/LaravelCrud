@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('cep');
             $table->string('phone');
             $table->string('user_file')->nullable();
+            $table->string('client')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

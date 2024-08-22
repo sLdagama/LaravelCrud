@@ -23,7 +23,8 @@ class UserController extends Controller
             $input['user_file'] = $path;
         }
         User::create($input);
-            
+        Mail::to($input['email'])->send(new HelloMail());
+        
         return Redirect::route('home')->with('success', 'Usuário criado com sucesso!');
     } // faz o cadastro do usuário
     
@@ -46,7 +47,6 @@ class UserController extends Controller
         }
 
         $user->update($input);
-
         return Redirect::route('home')->with('success', 'Usuário editado com sucesso!');
     } // faz a edição
 }

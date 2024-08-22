@@ -13,11 +13,8 @@ class LoginController extends Controller
     public function index() {
         return view("login");
     }
-    public function store(Request $request) {
-        $request->validate([
-            'email' => 'required|email',
-            'senha' => 'required|string'
-        ]);
+    public function store(LoginStoreRequest $request) {
+        $request->validated();
 
         $user = User::where('email', $request->input('email'))->first();
 
@@ -29,9 +26,14 @@ class LoginController extends Controller
             return redirect()->route('login.index')->withErrors(['error' => 'Email ou senha inválida']);
         }
 
-        return Redirect::route('home')->with('login.success', 'Usuário autenticado com sucesso!');
+        Auth::loginUsingId($user->id);
+
+        session(['authenticated_user' => $user]);
+
+        return Redirect::route('home')->with('login.success', 'Seja bem vindo(a) '. $user->name);
     }
     public function logout(Request $request) {
-        var_dump('logout');
+        Auth::logout();
+        return redirect()->route('login.index')->with('logout.success', 'Logout realizado com sucesso!');
     }
 }

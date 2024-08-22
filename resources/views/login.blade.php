@@ -7,6 +7,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @enderror
+    @if (session('logout.success')) 
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Sucesso!</strong> {{ session('logout.success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <main class="p-8">  
         <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto mgt-15">
             <h2 class="text-xl font-semibold mb-6">Login - sLdagama</h2>

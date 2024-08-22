@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    
+
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Sucesso!</strong> {{ session('success') }}
@@ -14,6 +14,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    
     <div class="flex justify-center my-6">
         <form action="/" method="GET" class="flex items-center space-x-2">
             <input value="{{ request()->search }}" name="search" id="search" type="text" placeholder="Buscar..." class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -22,9 +23,16 @@
             </button>
         </form>
     </div>
+
     <main class="p-8">
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-xl font-semibold mb-4">Lista de Usuários</h2>
+        <div class="bg-white shadow-lg rounded-lg p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-semibold">Lista de Usuários</h2>
+                <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                    Adicionar Usuário
+                </a>
+            </div>
+
             @foreach ($users as $user)
                 @php
                     $cep_true = preg_replace('/[^0-9]/', '', $user->cep); // Remove todos os caracteres que não forem números
